@@ -903,7 +903,7 @@ $(document).ready(function() {
                     //alert(message)
                     if (status == 201)
                     // $('#nameId').html(message);
-                        window.location.replace("../upload/" + message);
+                        window.location.assign("../upload/" + message);
                     if (status == 403)
                         $('#nameId').html('Wrong code');
 

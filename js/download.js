@@ -38,10 +38,10 @@ $('#submitC').click(function() {
 
                 if (status == 201)
                 // $('#nameId').html(message);
-                    window.location.href("../upload/" + message);
+                    window.location.assign("../upload/" + message);
                 if (status == 403)
-                    $("#downloadB").css('border', '2px solid red');
-                alert(message)
+                // $("#downloadB").css('border', '2px solid red');
+                    alert(message)
                     //$('#nameId').html('Wrong code');
 
             });
