@@ -2,7 +2,7 @@ $('#submitC').click(function() {
 
         if ($('#downloadB').val() == '') {
             $("#downloadB").css('border', '2px solid red');
-            $("#h_downloadB").html('Enter Download Code');
+            // $("#h_downloadB").html('Enter Download Code');
             return false;
         } else {
             $("#downloadB").css('border', '2px solid green');
@@ -35,12 +35,14 @@ $('#submitC').click(function() {
                 message = returnData.message;
 
 
-                //alert(message)
+
                 if (status == 201)
                 // $('#nameId').html(message);
-                    window.location.replace("../upload/" + message);
+                    window.location.href("../upload/" + message);
                 if (status == 403)
-                    $('#nameId').html('Wrong code');
+                    $("#downloadB").css('border', '2px solid red');
+                alert(message)
+                    //$('#nameId').html('Wrong code');
 
             });
 
