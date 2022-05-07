@@ -1006,7 +1006,7 @@ public function update_payimg(){
     acc_name     = :acc_name,
     phone        = :phone,
     
-    last_update  = :last_update,
+    last_update  = :last_update
     
     WHERE id      =  :id";
     //prepare statement
