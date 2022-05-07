@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--<script src="js/sync.js"></script>-->
+
+
+
+<head>
+
+    <script>
+        window.onload = function() {
+            $.fn.readBooks();
+            $.fn.category();
+
+        };
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/logo1.png" type="image" sizes="16x16">
+    <title>Project || Galore</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link href="css/templatemo-style.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/vendors/iconly/bold.css">
+
+    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<style>
+    #subm li a {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .menus2 {
+        text-align: center;
+        margin: 1%;
+        color: #f1f1f1;
+    }
+    
+    .menuD {
+        border-radius: 10px;
+        background-color: #435EBE;
+        padding: 1px;
+        margin: 1px;
+        z-index: 2;
+        width: 50%;
+    }
+    
+    .activeM {
+        background-color: #198754;
+    }
+    
+    .navm {
+        width: 130px;
+    }
+    
+    #result {
+        position: absolute;
+        width: 30%;
+        /*max-width: 870px;
+        max-height: 400px;*/
+        cursor: pointer;
+        overflow-y: auto;
+        box-sizing: border-box;
+        z-index: 1001;
+    }
+    
+    .homeT {
+        overflow-y: scroll;
+        /*height: 1000px;*/
+        scrollbar-width: thin;
+        scrollbar-color: #a4abb1;
+    }
+    
+    .homeT::-webkit-scrollbar {
+        width: 12px;
+    }
+    
+    .homeT::-webkit-scrollbar-thumb {
+        background-color: #a4abb1;
+        border-radius: 8px;
+    }
+    
+    .Pinfo {
+        word-wrap: break-word;
+        word-break: break-word;
+    }
+    
+    .link-class:hover {
+        background-color: #f1f1f1;
+    }
+    
+    .popup-overlay1.active {
+        visibility: visible;
+        text-align: center;
+        /*active*/
+        position: absolute;
+        background: #ffffff;
+        border: 3px solid #666666;
+        width: 30%;
+        /* height: 30%;*/
+        left: 18%;
+        border-radius: 10px;
+        top: 0;
+        box-shadow: 4px 20px 20px #666666;
+        z-index: 4;
+    }
+    
+    .popup-content.active {
+        visibility: visible;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active">
+                <!-- <div class="sidebar-header">
+                    <div class="d-flex justify-content-between">
+                        <div class="logo">
+
+                        </div>
+                        <div class="toggler">
+                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="sidebar-menu">
+
+                    <ul class="menu">
+                        <!--<li class="sidebar-title">Menu</li>-->
+                        <li class="sidebar-item active ">
+                            <a href="index.html">
+                                <img src="img/logo1.png" alt="Logo" title="Home">
+
+                                <h2>Project</h2>
+                                <h6>Galore</h6>
+                            </a>
+                            <br>
+                            <hr>
+
+                            </a>
+                        </li>
+
+
+                        <li class="sidebar-item active ">
+                            <a href="javascrip:void(0)" class='sidebar-link' style="background: #198754;">
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Categories</span>
+
+                            </a>
+                        </li>
+                        <span class="cats">
+
+                            
+                        </span>
+                    </ul>
+                </div>
+                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+            </div>
+        </div>
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+
+
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html">
+                        <h2>Project</h2>
+                        <h6>Galore</h6>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item menuD">
+
+                                <a class="nav-link navm" href="projects.html">
+                                    <h6 class="menus2">Projects</h6>
+                                </a>
+
+
+                            </li>
+                            <li class="nav-item menuD ">
+                                <a class="nav-link navm" href="payment.html">
+                                    <h6 class="menus2">Payment</h6>
+                                </a>
+                            </li>
+                            <li class="nav-item menuD">
+                                <a class="nav-link navm" href="download.html">
+                                    <h6 class="menus2">Download</h6>
+                                </a>
+                            </li>
+                            <li class="nav-item menuD activeM">
+                                <a class="nav-link navm" href="about.html">
+                                    <h6 class="menus2">About Us</h6>
+                                </a>
+                            </li>
+                            <li class="nav-item menuD">
+                                <a class="nav-link navm" href="#">
+                                    <h6 class="menus2">Our Services</h6>
+                                </a>
+                            </li>
+                            <li class="nav-item menuD">
+                                <a class="nav-link navm" href="contact.html">
+                                    <h6 class="menus2">Contact Us</h6>
+                                </a>
+                            </li>
+                            <!-- <li class="nav-item menuD">
+                                <a class="nav-link navm" href="#">
+                                    <h6 class="menus2">Contact</h6>
+                                </a>
+                            </li> -->
+
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+
+
+
+            <div class="col-lg-12 row page-heading">
+                <div style="display:flex; flex-direction:row; margin-right:50px;" class="col-lg-4">
+
+                    <input type="text" class="form-control col-lg-3" name="code" id="downloadB" placeholder="Enter Download Code">
+                    <!-- <input type="hidden" name="crud_req" class="form-control" id="crud_req" value="search">-->
+                    <button class="btn btn-success" type="button" id="submitC">
+                        <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                        </button>
+
+
+
+                </div>
+
+                <div style="display:flex;flex-direction: row;" class="col-lg-4">
+
+                    <input type="text" class="form-control col-lg-3" id="search" placeholder="Search Books ">
+                    <!-- <input type="hidden" name="crud_req" class="form-control" id="crud_req" value="search">-->
+
+                    <button class="btn btn-success" type="button" id="submit">
+                          <i class="fa fa-search"></i>
+                        </button>
+
+
+                </div>
+            </div>
+            <div class="page-content">
+                <section class="row">
+                    <div class="col-12 col-lg-9">
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <!--<h4>Profile Visit</h4>-->
+                                    </div>
+                                    <style type="text/css">
+                                        body {
+                                            font: 14px sans-serif;
+                                        }
+                                        
+                                        .wrapper1 {
+                                            width: 60%;
+                                            padding: 8px;
+                                            display: block;
+                                            margin-left: auto;
+                                            margin-right: auto;
+                                            text-align: left;
+                                        }
+                                        
+                                        .wrapper {
+                                            width: 90%;
+                                            padding: 20px;
+                                            display: block;
+                                            margin-left: auto;
+                                            margin-right: auto;
+                                            text-align: left;
+                                        }
+                                        
+                                        .help-block {
+                                            color: #ec1616;
+                                        }
+                                        
+                                        .form-control {
+                                            border-radius: 3px;
+                                        }
+                                        
+                                        .form-group {
+                                            margin-bottom: 20px;
+                                        }
+                                        
+                                        .wirpper1.form-group {
+                                            margin-bottom: 5px;
+                                            margin-top: 5px;
+                                        }
+                                    </style>
+
+                                    <div class="card-body">
+                                        <div class="welcom">
+                                            <div class="card-body" style="border-style: solid; border-width: 1p; border-color: #c9ced2; border-radius: 10px; margin: 2%;">
+                                                <div id="proS">
+                                                    <h3 style="padding:2%;">About Project Galore</h3>
+                                                    <p>
+                                                        Project Galore is a web service that delivers good and quality, well researched, complete and reliable aiding materials for projects, thesis, journal and conference papers. It is a sure place to source for professionally written project/research work
+                                                        or otherwise a custom project work, written to your specification, offering professional writing to our clients towards achieving desired results and objectives cutting across all fields of study.
+                                                        We are a group of experts positioned to make students' academic life easier and the career life of professionals more accessible. It is known that schoolwork could be tasking, demanding, and time-consuming.
+                                                        Yet, in this fast-paced world, it is essential to leverage opportunities in every instance. Project Galore is the solution for both students and professionals who desire help in one way or the other
+                                                        in the pursuit of academic and career excellence. Our goal is to provide exceptional writing support services to our clients at affordable prices without compromising quality. What we do is to inquire,
+                                                        discern, act and deliver. What you want is what you get. Information is free, but you are obliged to subscribe to it.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card-body" style="border-radius: 10px; margin: 2%;">
+
+                                            <div class="BankD" style="text-align: center;">
+
+                                                <hr>
+                                            </div>
+                                            <div class="">
+                                                <div id="proAllP"></div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-xl-4">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-3">
+                        <div class="card">
+                            <div class="card-body py-4 px-5">
+                                <div class="d-flex align-items-center">
+                                    <div class="avatar avatar-xl">
+                                        <span class="myPic"></span>
+                                    </div>
+                                    <div class="ms-3 name">
+                                        <h5>Call Us</h5>
+                                        <h6 class=" myName">
+                                            <a href="tel: +2347034775686">+2347034775686</a> <a href="tel: +2348055330885">+2348055330885</a>
+                                        </h6>
+
+                                    </div>
+                                </div>
+                                <span class="text-muted mb-0 myUrl"></span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" style="background-color: #d9f3e2;">
+                                <h4>Recent Download</h4>
+                            </div>
+                            <div class="homeT"></div>
+
+                            <div class="px-4">
+                                <button class='btn btn-block btn-xl btn-light-primary font-bold mt-3'>ProjectGalore</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Visitors</h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="chart-visitors-profile"></div>
+                        </div>
+                    </div>
+            </div>
+            </section>
+        </div>
+
+        <footer>
+            <div class="footer clearfix mb-0 text-muted">
+                <div class="float-start">
+                    <p>2022 &copy; ProjectGalore</p>
+                </div>
+                <div class="float-end">
+                    <!--<p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a href="http://ahmadsaugi.com">A. Saugi</a></p>-->
+                </div>
+            </div>
+        </footer>
+    </div>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+
+
+
+
+    <script src="js/read_books.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/download.js"></script>
+
+
+
+
+
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/vendors/apexcharts/apexcharts.js"></script>
+    <script src="assets/js/pages/dashboard.js"></script>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
